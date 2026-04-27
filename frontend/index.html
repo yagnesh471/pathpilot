@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PathPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav>
+      <div class="nav-logo">🧭 PathPilot</div>
+      <div class="nav-actions" id="navActions">
+        <div class="nav-tabs app-only">
+          <button class="nav-tab active" id="tab-home">Home</button>
+          <button class="nav-tab" id="tab-history">History</button>
+        </div>
+        <span class="user-pill app-only" id="userName"></span>
+        <button class="logout-btn app-only" id="logoutBtn">Logout</button>
+        <button class="theme-btn" id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="auth-page" id="authPage">
+    <div class="auth-card">
+      <div class="badge">Secure AI Career Roadmap Builder</div>
+      <h1>Welcome to PathPilot</h1>
+      <p class="subtitle">Login or create an account to keep your roadmap history private.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTab">Login</button>
+        <button class="auth-tab" id="signupTab">Sign up</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <input class="job-input" id="loginEmail" type="email" placeholder="Email" required />
+        <input class="job-input" id="loginPassword" type="password" placeholder="Password" required />
+        <button class="generate-btn" type="submit">Login →</button>
+      </form>
+
+      <form id="signupForm" class="auth-form hidden">
+        <input class="job-input" id="signupName" type="text" placeholder="Full name" required />
+        <input class="job-input" id="signupEmail" type="email" placeholder="Email" required />
+        <input class="job-input" id="signupPassword" type="password" placeholder="Password min 6 characters" required />
+        <button class="generate-btn" type="submit">Create account →</button>
+      </form>
+
+      <div id="authMessage"></div>
+    </div>
+  </div>
+
+  <main id="appShell" class="hidden">
+    <div class="page active" id="page-home">
+      <div class="container">
+        <div class="home-header">
+          <div class="badge">AI Career Roadmap Builder</div>
+          <h1>Career Roadmap Generator</h1>
+          <p class="subtitle">Enter a job title and get a complete step-by-step learning path.</p>
+
+          <div class="input-row">
+            <input type="text" class="job-input" id="jobInput" placeholder="e.g. UX Designer, Data Scientist..." />
+            <button class="generate-btn" id="generateBtn">Generate →</button>
+          </div>
+
+          <div class="tags" id="tagList"></div>
+        </div>
+
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p id="loadingText">Generating your roadmap...</p>
+        </div>
+
+        <div id="result"></div>
+      </div>
+    </div>
+
+    <div class="page" id="page-history">
+      <div class="history-container">
+        <div class="history-header">
+          <h2>My Search History</h2>
+          <button class="clear-btn" id="clearBtn">Clear my history</button>
+        </div>
+        <div id="historyList"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>PathPilot · Secure login · Private user history</footer>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
